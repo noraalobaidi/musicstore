@@ -1,33 +1,43 @@
-import image from "./vinyl.jpg";
+import image from "./BTS.png";
 import "./App.css";
 import products from "./products.js";
 
 function Album(props) {
   return (
-    <div>
-      <h1>{props.name}</h1>
-      <h4>{props.price}</h4>
+    <div class="product" style={{ width: "240px" }}>
+      <img class="imagesize" src={props.image} />
+      <h2 style={{ color: "white" }}>{props.name}</h2>
+      <h4 style={{ marginTop: "0px", marginBottom: "10px", color: "white" }}>
+        {props.price}
+      </h4>
     </div>
   );
 }
 function App() {
   const albums = products.map((item) => (
-    <Album name={item.name} price={item.price} />
+    <Album image={item.image} name={item.name} price={item.price} />
   ));
   return (
-    <div>
-      <h1 style={{ display: "flex", justifyContent: "center" }}>Music Store</h1>
-      <p style={{ display: "flex", justifyContent: "center" }}>
-        selling the newest albums of your favourite singers
-      </p>
+    // "rgb(254, 220, 0)"
+    <div style={{ backgroundColor: "rgb(53, 53, 53)" }}>
+      <h1
+        class="websitetitle"
+        style={{ display: "flex", justifyContent: "center", color: "white" }}
+      >
+        Army Music Store
+      </h1>
+      <h4 style={{ display: "flex", justifyContent: "center", color: "white" }}>
+        selling the albums of your favourite singer
+      </h4>
       <img
+        class="center"
         style={{
-          width: "200px",
-          height: "200px",
+          width: "1000px",
+          alignSelf: "center",
         }}
         src={image}
       />
-      {albums}
+      <div class="albums">{albums}</div>
     </div>
   );
 }
