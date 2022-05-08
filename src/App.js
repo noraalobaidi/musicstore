@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import image from "./vinyl.jpg";
+import "./App.css";
+import products from "./products.js";
 
-function App() {
+function Album(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>{props.name}</h1>
+      <h4>{props.price}</h4>
+    </div>
+  );
+}
+function App() {
+  const albums = products.map((item) => (
+    <Album name={item.name} price={item.price} />
+  ));
+  return (
+    <div>
+      <h1 style={{ display: "flex", justifyContent: "center" }}>Music Store</h1>
+      <p style={{ display: "flex", justifyContent: "center" }}>
+        selling the newest albums of your favourite singers
+      </p>
+      <img
+        style={{
+          width: "200px",
+          height: "200px",
+        }}
+        src={image}
+      />
+      {albums}
     </div>
   );
 }
